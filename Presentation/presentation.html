@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentation</title>
+</head>
+<style>
+    .left-header{
+        place-content: stretch flex-start;
+        align-items: stretch;
+        flex-direction: row;
+        box-sizing: border-box;
+        display: flex;
+        max-height: 100%;
+        left: 20px;
+        position: absolute;
+        top: 25px;
+    }
+    .logo{
+        background-image: url("/Presentation/imgs/logo_white.png");
+        width: 100px;
+        height: 12px;
+        display: flex;
+        background-size: cover;
+        background-position: 50%;
+        margin-top: 2px;
+    }
+    .middle-header{
+        place-content: stretch flex-start;
+        align-items: stretch;
+        flex-direction: row;
+        box-sizing: border-box;
+        display: flex;
+        max-height: 100%;
+        position: absolute;
+        top: 25px;
+        gap: 10px;
+        left: 150px;
+        justify-content: left;
+    }
+    .rigth-menu{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        position: absolute;
+        right: 10px;
+        top: 25px;
+        gap: 10px;
+    }
+    .middle-menu1{
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: small;
+       
+    }
+    .hamburguer-menu{
+        position: absolute;
+        right: 10px;
+        top: 25px;
+    }
+    .page{
+        margin-top: -60px;
+        height: 100%;
+        display: block;
+        color: white;
+    }
+    .contain{
+        min-height: calc(100vh);
+        min-height: calc(100dvh);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+ 
+    }
+    .first-page{
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+ 
+    }
+    .hero-container{
+        position: static;
+        width: 100%;
+        height: 100%;
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .image-container{
+        width: 100%;
+        height: 50%;
+        overflow: hidden;
+    }
+    .text-container{
+        color: var(--primary-color);
+        position: absolute;
+        padding: 30px 20px 16px;
+        width: 100%;
+        margin-top: 80px;
+        white-space: pre-wrap;
+        display: block;
+       
+    }
+    .text-wrapper{
+        min-height: 30vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+    }
+    .form-container{
+        color: var(--primary-color);
+        position: absolute;
+        padding: 30px 20px 16px;
+        width: 100%;
+        margin-top: 850px;
+        display: flex;
+        gap: 10px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .abailability{
+        color: var(--primary-color);
+        position: absolute;
+        padding: 30px 20px 16px;
+        width: 100%;
+        margin-top: 900px;
+        display: flex;
+        gap: 10px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .second-page{
+        background-image: url(/Presentation/imgs/home_illustriation1_d.jpg);
+        background-size: 50%;
+        background-position: left -25%;
+    }
+    .product-offering{
+        display: flex;
+        padding: 20px;
+        flex-direction: column;
+        align-items: stretch;
+ 
+    }
+    .solution-container{
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
+    max-width: 1420px;
+    margin: 20px auto 0;
+    width: 100%;
+    flex-wrap: wrap;
+       
+    }
+    .container-inserted{
+        position: relative;
+        min-height: 280px;
+        max-width: 320px;
+        margin: 0 auto 16px;
+        cursor: pointer;
+        display: block;
+        text-decoration: none;
+       
+    }
+    .solution-image-container{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: block;
+    }
+    .picture-style{
+        max-width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+    .solution-text-container{
+        padding: 20px;
+        position: relative;
+        color: white;
+ 
+    }
+    .solution-headline{
+ 
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        font: 700 40px/49px DIN_Regular,Arial,Verdana,sans-serif;
+        letter-spacing: normal;
+        margin: 0 0 16px;
+        text-decoration: none;
+ 
+    }
+    .solution-description{
+        font: 400 25px/30px DIN_Regular,Arial,Verdana,sans-serif;
+        letter-spacing: normal;
+    }
+    .theme-dim force-theme{
+    background-color: #000;
+    margin: auto;
+    padding: 20px;
+    color: #fff;
+    color: var(--primary-color);
+    min-height: 100px;
+    box-sizing: border-box;
+ 
+}
+ 
+.footer-content-container{
+    width: 100%;
+    max-width: 1420px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+ 
+.footer-main-section-container{
+    order: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+ 
+ 
+.footer-links-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+ 
+}
+ 
+.footer-link link-light{
+    color: #fff;
+}
+ 
+.footer-other-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+ 
+.socials-container{
+    display: flex;
+    justify-content: center;
+}
+ 
+.social-icon link-light{
+    height: 14px;
+}
+ 
+.mat-icon notranslate mat-icon-inline mat-icon-no-color{
+    font-size: inherit;
+    height: inherit;
+    line-height: inherit;
+    width: inherit;
+}
+</style>
+<body style="background-image: url(/Presentation/imgs/home_illustriation1_d.jpg);">
+    <div style="flex-direction: column; box-sizing: border-box; display: flex; position: relative;">
+        <div style="flex-direction: row; box-sizing: border-box; display: flex; place-content: strertch center; align-items: stretch; max-height: 100%;position: sticky;height: 60px;top: 0; opacity: 1;">
+            <div style="opacity: 0; position: absolute; top: 0;left: 0;bottom: 0;right: 0; display: block;"></div>
+            <div style="flex-direction: row; box-sizing: border-box; display: flex; place-content: strertch center; align-items: stretch; max-height: 100%; max-width: 1600px; width: 100%;">
+                <div class="left-header">
+                    <a href="https://www.google.com/">
+                        <div class="logo"></div>
+                    </a>
+                </div>
+                <div class="middle-header">
+                    <div>
+                        <a class="middle-menu1" href="https://www.google.com/">Residential</a>
+                    </div>
+                    <div>
+                        <a class="middle-menu1" href="https://www.google.com/">Roam</a>
+                    </div>
+                    <div>
+                        <a class="middle-menu1" href="https://www.google.com/">Boats</a>
+                    </div>
+                </div>
+                <div class="rigth-menu">
+                    <div style="display: block;">
+                        <a class="middle-menu1" href="https://www.google.com/">Personal</a>
+                    </div>
+                    <div style="height: 16px; border-left: 1px solid white; margin: 0 16px;"></div>
+                    <div style="display: block;">
+                        <a class="middle-menu1" href="https://www.google.com/">Business</a>
+                    </div>
+                    <div style="display: block;">
+                        <img src="/Presentation/imgs/Menu_Hamburger.svg" >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="contain">
+                <div class="first-page">
+                    <div class="hero-container">
+                        <div class="image-container">
+                            <picture style="max-width: 100%; object-fit: cover;-webkit-user-drag: none;"> <source media="orientation: portrait" srcset="/Presentation/imgs/home_hero_m.jpg"></picture>
+                            <img style="width: 100%; height: 1000px; padding: 0px; max-width: 100%;object-fit: cover;" src="/Presentation/imgs/home_hero_m.jpg">
+                        </div>
+                        <div class="text-container">
+                            <div class="text-wrapper">
+                                <div style="font:  400 16px/20px; margin-bottom: 8px; font: 700 32px/39px DIN_Regular,Arial,Verdana,sans-serif; ">HIGH-SPEED INTERNET</div>
+                                <div style="font-size: smaller;">Available almost anywhere on Earth.</div>
+                            </div>
+                        </div>
+                        <div class="form-container">
+                            <div style="float: left; width: 50%; padding: 5px; opacity: 1; border: 1px solid white;">SERVICE ADDRESS</div>
+                            <div style="float: right; width: 20%; padding: 5px; opacity: 1; background-color: white; border: 1px solid white; color: black; text-align: center;" >ORDER NOW</div>
+                        </div>
+                        <div class="abailability">
+                            <span style="font-size: small;" class="mat-button-wrapper">VIEW ABAILABILITY &amp; SPEEDS MAP  >
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="second-page">
+                    <div class="product-offering">
+                        <div class="solution-container">
+                            <a class="container-inserted" href="https://www.google.com/">
+                                <div class="solution-image-container">
+                                    <picture class="picture-style" draggable="false">
+                                        <source media="(min-width: 959.9px)" srcset="https://api.starlink.com/public-files/home_residential_d.jpg" class="ng-star-inserted">
+                                        <img style="width: 100%;height: 100%;" src="https://api.starlink.com/public-files/home_residential_m.jpg" class="ng-star-inserted">
+                                    </picture>
+                                </div>
+                                <div class="solution-text-container">
+                                    <div class="solution-headline">
+                                        Residential
+                                    </div>
+                                    <div _class="solution-description">
+                                        Connect at home
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="container-inserted" href="https://www.google.com/">
+                                <div class="solution-image-container">
+                                    <picture class="picture-style" draggable="false">
+                                        <source media="(min-width: 959.9px)" srcset="https://api.starlink.com/public-files/home_roam_d.jpg" class="ng-star-inserted">
+                                        <img style="width: 100%;height: 100%;" src="https://api.starlink.com/public-files/home_roam_d.jpg" class="ng-star-inserted">
+                                    </picture>
+                                </div>
+                                <div class="solution-text-container">
+                                    <div class="solution-headline">
+                                        ROAM
+                                    </div>
+                                    <div _class="solution-description">
+                                        Connect on the go
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="container-inserted" href="https://www.google.com/">
+                                <div class="solution-image-container">
+                                    <picture class="picture-style" draggable="false">
+                                        <source media="(min-width: 959.9px)" srcset="https://api.starlink.com/public-files/home_boats_d.jpg" class="ng-star-inserted">
+                                        <img style="width: 100%;height: 100%;" src="https://api.starlink.com/public-files/home_boats_d.jpg" class="ng-star-inserted">
+                                    </picture>
+                                </div>
+                                <div class="solution-text-container">
+                                    <div class="solution-headline">
+                                        BOATS
+                                    </div>
+                                    <div _class="solution-description">
+                                        Connect on the water
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+ 
+                    </div>
+                </div>
+               
+            </div>
+ 
+        </div>
+    </div>
+    <starlink-footer _ngcontent-ylj-c99="" starlinkfooter="" _nghost-ylj-c58="">
+        <footer _ngcontent-ylj-c58="" class="theme-dim force-theme">
+            <div _ngcontent-ylj-c58="" class="footer-content-container">
+                <div _ngcontent-ylj-c58="" class="footer-main-section-container">
+                    <div _ngcontent-ylj-c58="" class="footer-links-container"><span _ngcontent-ylj-c58=""
+                            class="footer-link link-light"><a _ngcontent-ylj-c58=""
+                                href="https://www.spacex.com/careers">Careers</a></span><span _ngcontent-ylj-c58=""
+                            class="footer-link link-light"><a _ngcontent-ylj-c58=""
+                                href="https://starlink.com/satellite-operators">Satellite Operators</a></span><span
+                            _ngcontent-ylj-c58="" class="footer-link link-light">
+                            <a _ngcontent-ylj-c58=""
+                                href="https://starlink.com/resellers">Authorized Reseller</a></span><!----><span
+                            _ngcontent-ylj-c58="" class="footer-link link-light"><a _ngcontent-ylj-c58=""
+                                href="https://starlink.com/legal">Privacy &amp; Legal</a></span><span
+                            _ngcontent-ylj-c58="" class="footer-link link-light ng-star-inserted"><a
+                                _ngcontent-ylj-c58="" href="#">Privacy Preferences</a></span><!----><!---->
+                        </div>
+                    <div _ngcontent-ylj-c58="" class="footer-other-container">
+                        <div _ngcontent-ylj-c58="" class="socials-container">
+                            <a _ngcontent-ylj-c58="" href="https://twitter.com/Starlink" class="social-icon link-light"><mat-icon
+                                    _ngcontent-ylj-c58="" role="img" inline="true" svgicon="x-logo"
+                                    class="mat-icon notranslate mat-icon-inline mat-icon-no-color"
+                                    aria-hidden="true" data-mat-icon-type="svg" data-mat-icon-name="x-logo"><svg
+                                        width="100%" height="100%" viewBox="0 0 1200 1227" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" fit=""
+                                        preserveAspectRatio="xMidYMid meet" focusable="false">
+                                        <path
+                                            d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"
+                                            fill="white"></path>
+                                    </svg></mat-icon></a></div>
+                        <div _ngcontent-ylj-c58="" class="text-copyright"><span _ngcontent-ylj-c58="">Starlink ©
+                                2023</span></div>
+                        <div _ngcontent-ylj-c58="" class="text-division link-light">Starlink is a division of
+                            SpaceX. Visit us at <a href="https://www.spacex.com/" target="_blank"
+                                rel="noopener noreferrer">spacex.com</a></div>
+                    </div>
+                </div>
+                <div _ngcontent-ylj-c58="" class="footer-email-lead-form-container"><footer-lead-form
+                        _ngcontent-ylj-c99="" emailsignup="" _nghost-ylj-c98="" class="ng-star-inserted">
+                        <div _ngcontent-ylj-c98="" class="lead-form-description ng-star-inserted"> Interested in
+                            staying up to date with Starlink? </div>
+                        <div _ngcontent-ylj-c98="" class="form-wrapper ng-star-inserted">
+                            <form _ngcontent-ylj-c98="" novalidate=""
+                                class="email-lead-form ng-untouched ng-pristine ng-invalid">
+                                <div _ngcontent-ylj-c98="" class="form-row"><mat-form-field _ngcontent-ylj-c98=""
+                                        class="mat-form-field ng-tns-c84-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid">
+                                        <div class="mat-form-field-wrapper ng-tns-c84-1">
+                                            <div class="mat-form-field-flex ng-tns-c84-1"><!----><!---->
+                                                <div class="mat-form-field-infix ng-tns-c84-1"><input
+                                                        _ngcontent-ylj-c98="" matinput="" color="primary"
+                                                        type="email" autocomplete="on"
+                                                        class="mat-input-element mat-form-field-autofill-control email-input ng-tns-c84-1 ng-untouched ng-pristine ng-invalid cdk-text-field-autofill-monitored"
+                                                        aria-label="" id="email-input-footer-748"
+                                                        aria-invalid="false" aria-required="false"><span
+                                                        class="mat-form-field-label-wrapper ng-tns-c84-1"><label
+                                                            class="mat-form-field-label ng-tns-c84-1 mat-empty mat-form-field-empty ng-star-inserted"
+                                                            id="mat-form-field-label-1" for="email-input-footer-748"
+                                                            aria-owns="email-input-footer-748"><!----><mat-label
+                                                                _ngcontent-ylj-c98=""
+                                                                class="ng-tns-c84-1 ng-star-inserted">Email</mat-label><!----><!----></label><!----></span>
+                                                </div><!---->
+                                            </div>
+                                            <div class="mat-form-field-underline ng-tns-c84-1 ng-star-inserted">
+                                                <span class="mat-form-field-ripple ng-tns-c84-1"></span></div>
+                                            <!---->
+                                            <div class="mat-form-field-subscript-wrapper ng-tns-c84-1"><!---->
+                                                <div class="mat-form-field-hint-wrapper ng-tns-c84-1 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
+                                                    style="opacity: 1; transform: translateY(0%);"><!---->
+                                                    <div class="mat-form-field-hint-spacer ng-tns-c84-1"></div>
+                                                </div><!---->
+                                            </div>
+                                        </div>
+                                    </mat-form-field><button _ngcontent-ylj-c98="" mat-button="" type="submit"
+                                        class="mat-focus-indicator submit-button mat-button mat-button-base mat-button-disabled"
+                                        disabled="true"><span class="mat-button-wrapper"> Sign Up <mat-icon
+                                                _ngcontent-ylj-c98="" role="img" inline="true"
+                                                class="mat-icon notranslate material-icons mat-icon-inline mat-icon-no-color ng-star-inserted"
+                                                aria-hidden="true"
+                                                data-mat-icon-type="font">chevron_right</mat-icon><!----><!----></span><span
+                                            matripple="" class="mat-ripple mat-button-ripple"></span><span
+                                            class="mat-button-focus-overlay"></span></button></div>
+                            </form>
+                            <div _ngcontent-ylj-c98="" class="lead-form-disclaimer-container"><span
+                                    _ngcontent-ylj-c98="" class="landing-legal-text">By clicking Sign Up, you agree
+                                    to our <a href="/legal" target="_blank">Privacy Policy</a></span></div>
+                        </div><!----><!----><!---->
+                    </footer-lead-form><!----></div>
+            </div>
+        </footer>
+    </starlink-footer>
+</body>
+</html>

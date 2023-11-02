@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+            border: 1px solid brown;
+            box-sizing: border-box;
+           
+        }
+
+        .nav{
+            border: 1px solid rgb(203, 56, 56);
+            align-items: stretch;
+            display: flex;
+            flex-direction: row;
+            max-height: 100%;
+            box-sizing: border-box;
+            justify-content: space-between;
+           padding: 40px;
+    
+        }
+
+        .logo{
+            background-image: url("/Presentation/imgs/logo_white.png");
+            place-content: stretch flex-start;
+            align-items: stretch;
+            flex-direction: row;
+            box-sizing: border-box;
+            display: flex;
+            max-height: 100%;
+            background-size: cover;
+            background-position: 50%;
+            width: 120px;
+            margin-left: 80px;
+                /* place-content: stretch flex-start;
+        align-items: stretch;
+        flex-direction: row;
+        box-sizing: border-box;
+        display: flex;
+        max-height: 100%;
+            left: 70px;
+            top: 39px; */
+        }
+
+        
+
+        .navLeft{
+            display: flex;
+            gap: 25px;
+            
+            justify-content: space-evenly;
+            place-content: stretch flex-start;
+
+            color: #fafafa;
+            align-items: stretch;
+            flex-direction: row;
+            box-sizing: border-box;
+            display: flex;
+            max-height: 100%;
+            /* position: absolute;
+            top: 37px;
+            left: 280px; */
+            
+        }
+        .navRight{
+            display: flex;
+            color: #fafafa;
+            gap: 10px;
+            align-items: center;
+            justify-content: flex-end;
+            right: 70px;
+            
+        }
+
+        .hamburger{
+            background-image: url(/Presentation/imgs/Menu_Hamburger.svg);
+            background-position: 50%;
+            width: 20px;
+            margin-right: 80px;
+        }
+
+        .hero{
+            /* background-image: url(/Presentation/imgs/home_hero_m.jpg);
+            background-position: 50%;
+            width: 120px;
+            margin-left: 80px; */
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .picContainer{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body style="background-image: url(/Presentation/imgs/home_illustriation2_d.jpg);">
+    <div class="container">
+        
+        <div class="nav">
+            <div class="logo" ><img src="" alt=""></div>
+            <div class="navLeft">
+                <div>RESIDENTIAL</div>
+                <div>ROAM</div>
+                <div>BOATS</div>
+            </div>
+            <div class="navRight">
+                <div style="display: block;">Personal</div>
+                <div style="height: 16px; border-left: 1px solid #fff; margin: 0px 2px;"></div>
+                <div style="display: block;">Business</div>
+
+            </div>
+            <div class="hamburger"></div>
+        </div>
+
+        <div class="hero">
+            <div class="picContainer">
+                <picture draggable="false" style="object-fit: cover;">
+                    <source media="(min-width: 959.9px)" srcset="https://api.starlink.com/public-files/home_hero_d.jpg">
+                    <img alt="" loading="eager" fetchpriority="high" draggable="false" src="https://api.starlink.com/public-files/home_hero_m.jpg">
+                </picture>
+            </div>    
+        </div>
+    
+    </div>
+</body>
+</html>
