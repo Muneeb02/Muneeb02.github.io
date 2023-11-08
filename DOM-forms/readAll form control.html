@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+        function readValue(){
+
+            $('#valueDiv').html('');
+
+            let nameText = $('#name');
+            $('#valueDiv').append("<div> <b>Name: </b>"+ nameText.val() +  " </div>");
+
+            let genderRadio = $('input[name="gender"]:checked');
+            $('#valueDiv').append("<div> <b>Gender: </b>"+ genderRadio.val() +  " </div>");
+
+            let skillCheckbox = $('input[name="skills"]:checked');
+            //$('#valueDiv').append("<div> <b>Name: </b>"+ skillCheckbox.val() +  " </div>");
+            let Values= [];
+            skillCheckbox.each((ind, ele)=>{
+                Values.push($(ele).val());
+            });
+            $('#valueDiv').append("<div> <b>Skills: </b>"+ Values +  " </div>");
+
+           let countrySelect = $('select[name="country"] option:selected');
+           $('#valueDiv').append('<div><b>Country: </b>'+ countrySelect.val() +'</div>');
+
+            let multiSelect = $('select[name="options"] option:selected');
+            let tempVal = [];
+            multiSelect.each((ind, ele)=>{
+                tempVal.push($(ele).val());
+            });
+            $("#valueDiv").append('<div><b>Random Options: </b>'+ tempVal +'</div>')
+
+            let areaTxt = $('#textarea1');
+            $('#valueDiv').append('<div><b>Descriptions: </b>'+ areaTxt.val()+'</div>');
+
+            // let textAreaId = $('#textarea');
+            // $('#valueDiv').append("<div> <b>Description: </b>" + textAreaId.val() + "</div>");
+
+        }
+    </script>
+
+
+
+</head>
+<body>
+    <div style="display: grid; grid-template-columns: 150px auto; gap: 20px;">
+         <label for="">Name</label>
+        <input type="text" id="name"/>
+        Gender
+        <div>
+            <input type="radio" value="male" name="gender" checked>Male
+            <input type="radio" value="female" name="gender">Female
+        </div>
+
+        Skills
+        <div>
+            <input type="checkbox" name="skills" id="" value="java">Java
+            <input type="checkbox" name="skills" id="" value="javascript" checked>Javascript
+        </div>
+
+        Country 
+        <select name="country" id="">
+            <option value="usa" selected>United States of America</option>
+            <option value="canada">Canada</option>
+        </select>
+
+        <br>
+        Random Options
+        <select name="options" id="" multiple>
+            <option value="opt1" selected>Option 1</option>
+            <option value="opt2">Option 2</option>
+        </select>
+
+        <br>
+        Description
+        <textarea name="" id="textarea1" cols="30" rows="5">Description</textarea>
+    </div>
+
+
+    <div style="text-align: center; margin-top: 40px;">
+    <button onclick="readValue()" >Submit</button>
+    </div>
+
+    <hr>
+    <h5>Selected Values</h5>
+    <hr>
+    <div id="valueDiv"></div>
+
+</body>
+</html>

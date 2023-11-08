@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <style>
+        div{
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script>
+        $(function(){
+           let myDiv= $('<div></div>');
+           myDiv.html('<label for="">Name </label>'+
+            '<input type="text" name="" id="">');
+           $('body').append(myDiv);
+
+           let myTextDiv= $('<div></div>');
+           myTextDiv.html('<label for=" ">Description </label>'+
+          '<textarea name="" id="" cols="30" rows="10"></textarea>');
+          $('body').append(myTextDiv);
+
+
+           let mysingleSelectDiv= $('<div></div>');
+           mysingleSelectDiv.html(' <label for="">Country </label>'+
+                '<select name="skills" id="">'+
+                       ' <option value="java">Java</option>'+
+                      '  <option value="Javascript">Javascript</option>'+
+                        '<option value="Python" selected>Python</option>'+
+                  ' </select>');
+          $('body').append(mysingleSelectDiv);
+
+
+          let myMultiSelectDiv= $('<div></div>');
+          myMultiSelectDiv.html(' <label for="">Country </label>'+
+                '<select name="address" id="" multiple >'+
+                       ' <option value="Home">Home</option>'+
+                      '  <option value="Office">Office</option>'+
+                        '<option value="Work" selected>Work</option>'+
+                  ' </select>');
+          $('body').append(myMultiSelectDiv);
+
+
+          let myRadioDiv= $('<div></div>');
+          myRadioDiv.html('<label for="">Gender</label>'+
+       ' <input type="radio" value="male" name="gender" checked/><label for="">Male</label>'+
+        '<input type="radio" value="female" name="gender"/><label for="">Female</label>');
+          $('body').append(myRadioDiv);
+
+
+          let myCheckedBoxDiv= $('<div></div>');
+          myCheckedBoxDiv.html('<label for="">Gender</label>'+
+        '<input type="checkbox" value="java"/><label for="">Java</label>'+
+        '<input type="checkbox" value="javascript" checked/><label for="">Javascript</label>');
+          $('body').append(myCheckedBoxDiv);
+
+
+        })
+
+    </script>
+</head>
+<body>
+    <!-- <div></div>
+    <div>
+        <label for="">Name </label>
+        <input type="text" name="" id="">
+    </div>
+    <div>
+        <label for=" ">Description</label>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+    </div>
+
+    <div>
+        <label for="">Country</label>
+       <select name="" id="">
+            <option value="">Java</option>
+            <option value="">Javascript</option>
+            <option value="" selected>Python</option>
+       </select>
+    </div>
+
+
+    <div>
+        <label for="" >Address</label>
+       <select name="" id="" multiple>
+            <option value="">Home</option>
+            <option value="">Work</option>
+            <option value="" selected>Office</option>
+       </select>
+    </div>
+
+    <div>
+        <label for="">Gender</label>
+        <input type="radio" checked/><label for="">Male</label>
+        <input type="radio"/><label for="">Female</label>
+    </div>
+
+    <div>
+        <label for="">Gender</label>
+        <input type="checkbox" /><label for="">Java</label>
+        <input type="checkbox" checked/><label for="">Javascript</label>
+    </div> -->
+
+</body>
+</html>

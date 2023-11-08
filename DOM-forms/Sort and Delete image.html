@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <style>
+        .dark{
+            justify-content:space-evenly;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+          
+        }
+    </style>
+
+    <script>
+        let list = [{ id: 2, fname: 'John', lname: 'Doe', img: '/Presentation/imgs/home_boats_m.jpg' },
+        { id: 4, fname: 'sam', lname: 'altman', img: '/Presentation/imgs/home_feature1_m.jpg' },
+        { id: 3, fname: 'king', lname: 'soloman', img: '/Presentation/imgs/home_feature2_m.jpg' },
+        { id: 1, fname: 'ali', lname: 'ahmed', img: '/Presentation/imgs/home_feature3_m.jpg' }]
+
+        $(function(){
+          let div = $('#container');
+          div.attr('style', 'display:flex; gap:10px;flex-wrap:wrap;  ');
+            //  let div = $('#container');
+            //  div.attr('style', 'display:flex; gap:10px;flex-wrap:wrap;');
+             
+
+             let sortButton = $('<button></button>');
+             sortButton.text('Sort');
+             sortButton.attr('onclick', 'sort()');
+             div.before(sortButton);
+             buildList(list);
+         
+        });
+
+        function buildList(list){
+            let div1 = $('#container');
+            div1.html('');
+            let divHtml = '';
+            for (let val of list) {
+                divHtml += '<div style="display:flex; gap: 10px; ">'
+               + "<img src=" + val.img + " style='width: 150px; height: 150px; object-fit: cover;'/>"
+                +'<div style=" display:flex; flex-direction: column; justify-content:space-around;">'
+                +    '<div>' + val.fname + '</div>'
+                +   '<p>' + val.lname + '</p>'
+                +   '<button onclick="deleteCol(this)">Delete</button>'
+                +'</div></div>';
+            }
+             div1.html(divHtml);
+         }
+
+            function deleteCol(any){
+            $(any).parent().parent().remove();
+        }
+
+        let sortCol = 'id';
+        function sort(){
+            
+            sortCol = sortCol == 'id' ? 'name' : 'id';
+            let sortedArr = [];
+            if(sortCol=='id'){
+                sortedArr = list.sort((obj1, obj2)=>{
+                    return obj1.id > obj2.id ? -1 : 1;
+                });
+            }
+            else{
+                sortedArr = list.sort((obj1,obj2)=>{
+                    return obj1.fname > obj2.fname ? 1 : -1;
+                });
+            }
+
+            buildList(sortedArr);
+
+        }
+        
+
+    </script>
+</head>
+<body>
+    <div id="container">
+        <!-- <div style="display:flex; gap: 10px;">
+            <img src="" alt="" style="width: 150px; height: 150px; object-fit: cover;">
+            <div>
+                <div>fname</div>
+                <div>lname</div>
+                <button onclick="deleteCol(this)">Delete</button>
+            </div>  
+        </div> -->
+
+
+    </div>
+
+   <!-- // <img src="/Presentation/imgs/home_boats_m.jpg" alt="">
+   // <img src="/Presentation/imgs/home_feature1_m.jpg" alt="">
+   // <img src="/Presentation/imgs/home_feature2_m.jpg" alt="">
+    <img src="/Presentation/imgs/home_feature3_m.jpg" alt=""> -->
+</body>
+</html>

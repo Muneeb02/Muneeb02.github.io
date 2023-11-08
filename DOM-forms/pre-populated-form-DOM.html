@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = function(){
+            let selectMyDiv = document.createElement("div");
+            selectMyDiv.innerHTML = '<label>Food </label>'+
+            '<select name="food" id="">'+
+       ' <option value="Biryani">chicken Biryani</option>'+
+        '<option value="Pulao">Mutton Pulao</option>'+
+       ' <option value="karahi">karahi</option>'+
+        ' </select>';
+        document.body.append(selectMyDiv);
+
+        let myRadioDiv = document.createElement("div");
+        myRadioDiv.innerHTML = '<label for="">Gender</label>'+
+        '<input type="radio" value="male" checked/><label for="">Male</label>'+
+        '<input type="radio" value="female"/><label for="">Female</label>';
+        document.body.append(myRadioDiv);
+        }
+        
+
+    </script>
+
+
+</head>
+<body>
+    
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dark{
+            color: white;
+            background-color:black;
+        }
+
+        .light{
+            color: #009860;
+            background-color: brown;
+        }
+
+    </style>
+        
+
+    <script>
+        function toggleClass(){
+          let myTheme = document.querySelector('select[name="theme"] option:checked');
+          let myp = document.querySelector('p');
+
+          myp.classList.remove(myTheme.value == 'dark'? 'light': 'dark');
+          myp.classList.add(myTheme.value == 'dark'? 'dark': 'light');
+          console.log(myp.getAttribute('class'))
+        }
+
+
+    </script>
+
+</head>
+<body>
+
+    <select name="theme" id="">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+   </select>
+   <p>just random text to fill the space</p>
+   <input type="button" onclick="toggleClass()" value="Submit"/>
+    
+</body>
+</html>

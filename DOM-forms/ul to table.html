@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <style>
+        #myTable{
+            width: 100%;
+            border: 1px solid green;
+        }
+
+        th, td{
+            padding : 16px;
+            border: 1px solid blue;
+        }
+
+        tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+    </style>
+
+    <script>
+        function listToTable(){
+            let myList = $('ul li');
+            let newTable = $('<table></table>');
+
+            myList.each((indx, ele)=>{
+                let jqElement = $(ele);
+                let trElement = $('<tr></tr>');
+                newTable.append(trElement);
+                jqElement.html().trim().split('-').forEach((val)=>{
+                    trElement.append(('<td> '+val +' </td>'));
+                });
+
+            });
+            $('#flower').replaceWith(newTable);
+        }
+
+
+        function tableToList(){
+            let myTable = $('#myTable tr td');
+            let myUl = $('<ul></ul>');
+            myTable.each((indx,ele)=>{
+                let html = $(ele).html();
+                myUl.append('<li> ' + html + ' </li>');
+            });
+            $('#myTable').replaceWith(myUl);
+        }
+
+    </script>
+
+
+</head>
+<body>
+    <ul id="flower">
+        <li>Rose - Red</li>
+        <li>Chamoline  - Yellow</li>
+        <li>Lily - white</li>
+    </ul>
+    
+    <button onclick="listToTable()">Convert List to Table</button>
+
+    <div style="margin-top: 20px;"></div>
+
+    <table id="myTable">
+        <tr>
+            <td>first colum</td>
+            <td>second column</td>
+        </tr>
+        <tr>
+            <td>2 first colum</td>
+            <td>2 second column</td>
+        </tr>
+    </table>
+    <button onclick="tableToList()">Convert Table to List</button>
+
+    
+</body>
+</html>

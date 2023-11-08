@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+
+let objs = { tags: ['div', 'label'], text: ['Welcome', 'DIFFFF'], color: ['blue', 'orange'] }
+
+        $(function(){
+            let selectedTag = '<label>Select Tag: </label> <select id="tagId">';
+            let tetx1 = '<label> Some Text: </label>';
+            let color1 = '<label> Select color: </label> <select id="colorId">';
+
+
+            for (let tagval of objs.tags) {
+                    selectedTag +='<option value="' + tagval + ' "> ' + tagval+'</option>';
+            }
+
+            for (let textval of objs.text) {
+                tetx1+= textval +  '  <input type="radio" name="textId" value="' +textval + '" />'
+            }
+
+            for (let colorval of objs.color) {
+                color1+= '<option value="' +  colorval+ ' ">' + colorval+ '</option>';
+            }
+
+            $('body').append($(selectedTag + '</select>'));
+            $('body').append($('<br/><br/>'));
+
+            $('body').append($(tetx1));
+            $('body').append($('<br/><br/>'));
+
+            $('body').append($(color1 + '</select>'));
+            $('body').append($('<br/><br/>'));
+
+            $('body').append($('<button onclick="clickMe() ">Click Me</button>'));
+        })
+
+        function clickMe(){
+                let TagVal1 = $('#tagId option:selected').val();
+                let textVal1 =$('[name="textId"]:checked').val();
+                let colorVal1 = $('#colorId option:selected').val();
+
+                $('body').append($('<' + TagVal1+ 'style = "color: ' + colorVal1+ '; ">' + textVal1+ '</label>' ));
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <!-- <label for=""> selected tag</label>
+    <select name="" id="tagId">
+        <option value="sa" selected>sad</option>
+        <option value="aa">aaa</option>
+    </select>
+
+    <label for="">Some Text: </label>
+    <input type="text"> -->
+    
+</body>
+</html>

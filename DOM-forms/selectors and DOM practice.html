@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        /* .myLabel{
+            color: aqua;
+            background-color: gray;
+        } */
+    </style>
+
+    <script>
+        function myClick(){
+
+        $('.myLabel').css("color","blue");
+        $('#myLabel1').css("color", "blue");
+        $('#myLabel1').css("backgroundColor", "blue");
+        $('#myLabel1').css('font-size',"8");
+        $('#myLabel1').style("color","blue");
+        $("label[for='label']").css("color","blue");
+
+
+
+        //create element 
+        let input1 = $("<input type='text'/>")
+        $('body').append(input1);
+
+        let myDiv = $('<div>How we do</div>');
+        $('body').append(myDiv);
+
+         }
+
+
+
+        function mySumFun(){
+           let first = $('#firstfield');
+           console.log(first);
+           let data1 = parseInt(first.val());
+           let second = $('#secondfield');
+           let data2 = parseInt(second.val());
+
+           let sum = data1+data2;
+
+           let displayField = $('#answerField')
+           displayField.val(sum);
+        }
+
+
+        function mySwapFun(){
+           let first1 = $('#firstfield1');
+           console.log(first1);
+           let data1 = parseInt(first1.val());
+           let second1 = $('#secondfield1');
+           let data2 = parseInt(second1.val());
+
+           first1.val(data2);
+           second1.val(data1);
+        }
+
+    </script>
+
+
+</head>
+<body>
+    <label for="label" class="myLabel" id="myLabel1" style="font-size: 50px;">hello</label>
+    <button onclick="myClick()" >Submit</button>
+    
+    <div style="text-align: center;">
+        <h3>Sum of two numbers</h3>
+       <div style="padding: 10px;">
+            <label for="">Add first data</label>
+            <input type="text" id="firstfield" />
+        </div>
+            
+        <div style="padding: 10px;">
+            <label for="">Add first data</label>
+            <input type="text" id="secondfield" >
+        </div>
+
+        <div style="padding: 10px;">
+            <input type="button" name="button" id="" value="Submit" style="width: 89px; " onclick="mySumFun()">
+            <input type="text" id="answerField" >
+        </div>
+    </div>
+
+    
+
+    <div style="text-align: center;"> 
+        <h3>swap of numbers</h3>
+        <div style="padding: 10px;">
+            <label for="">Add first data</label>
+            <input type="text" id="firstfield1" />
+        </div>
+            
+        <div style="padding: 10px;">
+            <label for="">Add first data</label>
+            <input type="text" id="secondfield1" >
+        </div>
+
+        <div style="padding: 10px;">
+            <input type="button" name="button" id="" value="Submit" style="width: 89px; " onclick="mySwapFun()">
+            
+        </div>
+    
+    </div>
+    
+
+</body>
+</html>
