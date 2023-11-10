@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+ 
+        let score = 0;
+        let level = 1;
+        let dir_h = 'right';
+        let dir_v = 'down';
+        let sc = score;
+        let lv= level;
+        let gameStarted = false;
+        let speed = 1;
+       
+ 
+        function reset() {
+            clearTimeout(myTime)
+            document.getElementById('imgId').style.left = "500px"
+            document.getElementById('imgId').style.top = "100px"
+ 
+            let startButton = document.getElementById('startId');
+            startButton.disabled = false;
+            gameStarted = false;
+          
+           sc=0;
+           lv=1;
+            $('#scoreId').html('')
+            let scoreId = $('#scoreId').append('Score: <b> '+ sc +' </b>')
+
+            $('#levelId').html('')
+            let levelId = $('#levelId').append('Level: <b>'+ lv+'</b>')
+
+        }
+ 
+        function start() {
+            gameStarted = true;
+            disp();
+            myTime = setTimeout('start()', 10);
+            let startButton = document.getElementById('startId');
+            startButton.disabled = true;
+        }
+        function disp() {
+             //speed = 1;
+ 
+            let y = document.getElementById('imgId').offsetTop;
+            let x = document.getElementById('imgId').offsetLeft;
+ 
+            let containerRigth = document.getElementById('ballScreen').offsetWidth;
+            let containerLeft = document.getElementById('ballScreen').offsetLeft;
+ 
+            let containerBottom = document.getElementById('ballScreen').offsetHeight;
+            let containerTop = document.getElementById('ballScreen').offsetTop;
+ 
+ 
+           
+           
+            if (x >= containerRigth) {
+                dir_h = 'left';
+            }
+            if (x <= containerLeft) {
+                dir_h = 'right';
+            }
+            if (dir_h == 'right') {
+                x = x + speed;
+            }
+            else {
+                x = x - speed;
+            }
+ 
+            if (y >= containerBottom) {
+                dir_v = 'up';
+            }
+            if (y <= containerTop) {
+                dir_v = 'down';
+            }
+ 
+            if (dir_v == 'down') {
+                y = y + speed;
+            }
+            else {
+                y = y - speed;
+            }
+ 
+            document.getElementById('imgId').style.top = y+"px";
+            document.getElementById('imgId').style.left = x+"px";
+        }
+ 
+        function buildScore() {
+            
+           
+        }
+        
+        
+        function clickMe() {
+            if( gameStarted){
+            sc = sc+10;
+            
+            lv = lv+1;
+            $('#scoreId').html('')
+            let scoreId = $('#scoreId').append('Score: <b>' +sc+'</b>');
+
+            $('#levelId').html('')
+            let levelId = $('#levelId').append('Level: <b>' +lv+'</b>');
+
+            speed+=3;
+
+            }
+        }
+    </script>
+    <style>
+        .container {
+            background-color: aqua;
+            display: flow-root;
+        }
+ 
+        .ballScreen {
+            border: 3px solid red;
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-top: 5%;
+            height: 600px;
+            background-image: url(/img/bakground.jpg);
+        }
+ 
+        .score {
+            border: 3px solid red;
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-top: 15px;
+            margin-bottom: 5%;
+            height: 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font: italic;
+        }
+ 
+        .ballImg {
+            width: 50px;
+            position:absolute; left: 400px; top: 100px;
+        }
+    </style>
+</head>
+ 
+<body>
+    <div class="container">
+        <div class="ballScreen" id="ballScreen">
+            <img src="/img/ball.png" class="ballImg" id="imgId" onclick="clickMe()">
+        </div>
+        <div class="score">
+            <div>
+                <button onclick="start()" id="startId">Start</button>
+                <button onclick="reset()" id="resetId">Reset</button>
+            </div>
+            <div id="scoreId">Score: 0 </div>
+            <div id="levelId">Level: 1 </div>
+        </div>
+    </div>
+</body>
+ 
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+        
+        $(function(){
+            ballMovement();
+
+            
+        })
+
+        function ballMovement(){
+            
+            let containerX = 600;
+            let containery = 600;
+
+            let ballImg = $('#ballImg');
+            let i=30;
+             let id =setInterval(function(){
+            i=i+20;
+            ballImg.style('left', i + 'px');
+        },200)
+        }
+
+
+
+
+
+    </script>
+
+    <style>
+
+        #outmost-container{
+            display: flow-root;
+        }
+
+        #container{
+            border: 1px solid green;
+            width: 100%;
+            height: 100vh;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        #screen{
+            
+            height: 500px;
+            background-color: aqua;
+            opacity: 80%;
+            background-image: url('/img/bakground.jpg');
+            
+        }
+
+        #imgId{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #ballImg{
+            width: 50px;
+            /* position: absolute;
+            top : 100px;
+            left : 300px; */
+
+        }
+        
+
+        #dataDisplay{
+            border: 2px solid blue;
+            height: 200px;
+            display: flex; 
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            
+                  
+           
+            }
+
+            #buttonDisplay{
+
+                display: flex;
+                margin: auto;
+                gap :100px;
+                
+                
+            }
+
+            #scoreDisplay{
+                display: flex;
+                gap :100px;
+                margin: auto;
+                
+            }
+
+    </style>
+</head>
+<body>
+
+    <div id="outmost-container">
+
+        <div id="container" >
+
+            <div id="screen">
+                <!-- <img id="imgId"  src="/img/bakground.jpg" alt="" style="object-fit: fill;"> -->
+                <img id="ballImg" src="/img/ball.png" alt="">
+
+            </div>
+
+
+            <div id="dataDisplay" >
+                
+                <div id="buttonDisplay">
+                    <button>Start</button>
+                    <button>Reset</button>
+                </div>
+
+                <div id="scoreDisplay">
+                    <div>Score:</div>
+                    <div>level:</div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+        
+        $(function(){
+
+            divMovement();
+            //uiElements();
+            // Call the uiElements function to start the process
+            uiElements();
+            labelMovement();
+
+
+        })
+        
+        
+        function divMovement(){
+            let i=30;
+        let id =setInterval(function(){
+            i=i+20;
+            $('div').css('left', i + 'px')
+        },200)
+        }
+       
+
+
+        // function uiElements(){
+        //     let stringArr = ["this", "is", "how"];
+        //     let Count = 0;
+        //     if(Count ==stringArr ){
+        //         clearInterval(printUi)
+        //     }
+        //     else{
+        //         let myUi = $('#myUi');
+        //         for(i=0; i<stringArr.length; i++){
+                    
+        //           let printUi =  setInterval(function(){
+        //                 let myList = $('<li>' + stringArr[i]+ ' </li>')
+        //                 myUi.append(myList);
+        //                 Count++;
+        //             }, (i+1)*5000)
+        //         }
+        //     }
+
+            
+           
+        //  }
+
+
+        function labelMovement(){
+            let m=5;
+           setInterval(function(){
+            m=m+10;
+            $('mylabel').css('left', m+'px')
+           },2000)
+
+        }
+
+
+        function uiElements() {
+    let stringArr = ["this", "is", "how"];
+    let Count = 0;
+    let i = 0; // Initialize i outside the loop
+
+    // Create a function to add items to the UI
+    function addItemToUI() {
+        if (Count === stringArr.length) {
+            clearInterval(printUi);
+        } else {
+            let myUi = $('#myUi');
+            let myList = $('<li>' + stringArr[i] + ' </li>');
+            myUi.append(myList);
+            Count++;
+            i++; // Increment i to move to the next item in the array
+        }
+    }
+
+    // Call the function immediately to add the first item
+    //addItemToUI();
+
+    // Use setInterval to add items at intervals
+    let printUi = setInterval(addItemToUI, 1000);
+}
+
+
+
+         
+
+        // let printUi = setInterval (function(){
+            
+        //     let len=stringArr.length;
+        //     let myUi = $('#myUi');
+        //     for(let val of stringArr){
+        //         let myList = $('<li>' + val+ ' </li>')
+        //         myUi.append(myList);
+        //     }
+        // },2000)
+
+
+        //     setTimeout(function(){
+        //         clearInterval(printUi)
+        //     },50000)
+
+    </script>
+</head>
+<body>
+    <div style="position: relative;">My Div</div>
+    <ul id="myUi">
+
+    </ul>
+
+    <div id="newDiv" style=" border: 1px solid blue;">
+        <label id="mylabel">label</label>
+    </div>
+    
+</body>
+</html>

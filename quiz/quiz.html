@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #product-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .product-image {
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+            transition: transform 0.5s;
+        }
+
+        .product-image:hover {
+            transform: scale(1.1);
+        }
+
+        #flavors-container {
+            display: flex;
+        }
+
+        .flavor-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            
+        }
+
+        .flavor-card.selected {
+            border: 2px solid #007bff;
+        }
+    </style>
+
+
+<script>
+    let obj = [{ flavor: 'Pike Place', price: '43.04', checked: true }, { flavor: 'Pumpkin spice', price: '52.08' }];
+    let selectedFlavorIndex = 0;
+
+    function selectFlavor(index) {
+        selectedFlavorIndex = index;
+        updateSelectedFlavor();
+        updateImages();
+    }
+
+    function updateSelectedFlavor() {
+        let selectedFlavor = obj[selectedFlavorIndex];
+        let selectedFlavorElement = $("selected-flavor");
+        selectedFlavorElement.innerHTML = `Selected Flavor: ${selectedFlavor.flavor}, Price: $${selectedFlavor.price}`;
+    }
+
+    function updateImages() {
+        let pikePlaceImage = $("pike-place-image");
+        let pumpkinSpiceImage = $("pumpkin-spice-image");
+
+        if (selectedFlavorIndex === 0) {
+            pikePlaceImage.style.display = "block";
+            pumpkinSpiceImage.style.display = "none";
+        } else if (selectedFlavorIndex === 1) {
+            pikePlaceImage.style.display = "none";
+            pumpkinSpiceImage.style.display = "block";
+        }
+    }
+
+    function checkout() {
+        const selectedFlavor = obj[selectedFlavorIndex];
+        alert(`Checkout - Flavor: ${selectedFlavor.flavor}, Price: $${selectedFlavor.price}`);
+    }
+
+    updateSelectedFlavor();
+    updateImages();
+</script>
+
+
+</head>
+<body>
+    <div id="product-container">
+        <img id="pike-place-image" class="product-image" src="https://m.media-amazon.com/images/I/814-cZVGojL._SX679_PIbundle-4,TopRight,0,0_AA679SH20_.jpg" alt="Pike Place">
+        <img id="pumpkin-spice-image" class="product-image" src="https://m.media-amazon.com/images/I/81C7ZQHz+4L._SX679_.jpg" alt="Pumpkin Spice">
+    </div>
+
+    <div id="flavors-container" >
+        <div class="flavor-card" data-index="0" onclick="selectFlavor(0)">Pike Place - $43.04</div>
+        <div class="flavor-card" data-index="1" onclick="selectFlavor(1)">Pumpkin Spice - $52.08</div>
+    </div>
+
+    
+
+    <div id="selected-flavor"></div>
+
+    <div id="lastDiv">
+        <label for="">Quantity</label>
+        <select name="quantity1" id="quantity">
+            <option value="24 Count (pack of 4)">24 Count (pack of 4)</option>
+        </select>
+        <button id="checkout-button" onclick="checkout()">Checkout</button>
+    </div>
+
+   
+</body>
+</html>

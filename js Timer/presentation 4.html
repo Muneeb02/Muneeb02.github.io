@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (your existing code for script and style) -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <style>
+        .container {
+            background-color: #adb5bd;
+            display: flow-root;
+        }
+ 
+        .ballScreen {
+            border: 3px solid red;
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-top: 5%;
+            height: 600px;
+            background-image: url(/img/bakground.jpg);
+            opacity: 80%;
+        }
+ 
+        .score {
+            border: 3px solid red;
+            background-color: #fefae0;
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-top: 15px;
+            margin-bottom: 5%;
+            height: 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font: italic;
+        }
+ 
+        .ballImg {
+            width: 100px;
+            position:absolute; left: 400px; top: 100px;
+        }
+    </style>
+
+    <script>
+
+window.onload = function() {
+            $('#scoreId').html('')
+            $('#scoreId').append('Score: <b>' +score+'</b>');
+            $('#levelId').html('')
+            $('#levelId').append('Level: <b>' +level+'</b>');
+ 
+        }
+
+        let score = 0;
+        let level = 1;
+        let dir_h = 'right';
+        let dir_v = 'down';
+        let sc = score;
+        let lv = level;
+        let gameStarted = false;
+        let ballVisible = true; // Flag to track ball visibility
+
+        function reset() {
+            clearTimeout(myTime);
+            clearInterval(ballVisibilityInterval);
+            document.getElementById('imgId').style.left = "500px";
+            document.getElementById('imgId').style.top = "100px";
+            sc = 0;
+            lv = 1;
+            gameStarted = false;
+            ballVisible = true; // Reset the ball visibility flag
+
+            let startButton = document.getElementById('startId');
+            startButton.disabled = false;
+
+            $('#scoreId').html('');
+            $('#scoreId').append('Score: <b>' + sc + '</b>');
+
+            $('#levelId').html('');
+            $('#levelId').append('Level: <b>' + lv + '</b>');
+        }
+
+        function startGame() {
+            gameStarted = true;
+            toggleBallVisibility();
+           
+            disp();
+            myTime = setTimeout('startGame()', 10);
+            let startButton = document.getElementById('startId');
+            startButton.disabled = true;
+            setInterval(toggleBallVisibility, 2000); // Toggle ball visibility every 1000 milliseconds (1 second)
+        }
+
+        function toggleBallVisibility() {
+            ballVisible = !ballVisible;
+            document.getElementById('imgId').style.visibility = ballVisible ? 'visible' : 'hidden';
+        }
+
+        function disp() {
+            let speed = 1;
+            let y = document.getElementById('imgId').offsetTop;
+            let x = document.getElementById('imgId').offsetLeft;
+            let containerRight = document.getElementById('ballScreen').offsetWidth;
+            let containerLeft = document.getElementById('ballScreen').offsetLeft;
+            let containerBottom = document.getElementById('ballScreen').offsetHeight;
+            let containerTop = document.getElementById('ballScreen').offsetTop;
+
+            if (x >= containerRight) {
+                dir_h = 'left';
+            }
+            if (x <= containerLeft) {
+                dir_h = 'right';
+            }
+            if (dir_h == 'right') {
+                x = x + speed;
+            } else {
+                x = x - speed;
+            }
+
+            if (y >= containerBottom) {
+                dir_v = 'up';
+            }
+            if (y <= containerTop) {
+                dir_v = 'down';
+            }
+
+            if (dir_v == 'down') {
+                y = y + speed;
+            } else {
+                y = y - speed;
+            }
+
+            document.getElementById('imgId').style.top = y + "px";
+            document.getElementById('imgId').style.left = x + "px";
+        }
+
+        function clickMe() {
+            if (gameStarted && ballVisible) {
+                sc = sc + 10;
+                lv = lv + 1;
+                $('#scoreId').html('');
+                $('#scoreId').append('Score: <b>' + sc + '</b>');
+                $('#levelId').html('');
+                $('#levelId').append('Level: <b>' + lv + '</b>');
+            }
+        }
+    </script>
+</head>
+
+
+
+<body>
+    <div class="container">
+        <div class="ballScreen" id="ballScreen">
+            <img src="/img/ball.png" class="ballImg" id="imgId" onclick="clickMe()">
+        </div>
+        <div class="score">
+            <div>
+                <button onclick="startGame()" id="startId">Start</button>
+                <button onclick="reset()" id="resetId">Reset</button>
+            </div>
+            <div id="scoreId">Score: <b>0</b></div>
+            <div id="levelId">Level: <b>1</b></div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        div{
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script>
+        let obj = [{ flavor: 'Pike Place', price: '43.04',checked:true }, { flavor: 'Pumpkin spice', price: '52.08' }];
+
+        $(function(){
+
+            let container = $('#container');
+            let imageHolder = ('<div id="imageHolder"></div>');
+            container.append(imageHolder);
+            let flavLabel = $('<label for="">Pick flavour</label>');
+            container.append(flavLabel);
+            let priceDiv = $('<div style="display: flex;"></div>');
+            container.append(priceDiv);
+
+            for (let val of obj) {
+                let item1 = $('<div style="border: 1px solid orange; border-radius: 10px; margin-right:10px padding: 10px">'
+                   + '<input name="itemDisplay" type="radio" value="  ' + val.flavor +  ' " >'
+                   +'<label for="">' + val.flavor+ '</label>'
+                    +'<p>'+ val.price +'</p></div>)'
+                    )   
+                    priceDiv.append(item1);  
+                    console.log(val.flavor) ;     
+                 }
+
+                 
+
+             let optionselect = $('input[name="itemDisplay"]:checked').val();
+             console.log(optionselect);
+            // let itemVal =    (optionselect ).val();
+             if(optionselect == "Pike Place"){
+                let imageHolder = $('#imageHolder');
+                let img1 = $('<img src="https://m.media-amazon.com/images/I/814-cZVGojL._SX679_PIbundle-4,TopRight,0,0_AA679SH20_.jpg" alt="" style="width: 100px;">');
+                imageHolder.append(img1);
+
+             }
+
+             else if(optionselect == "Pumpkin spice"){
+                let imageHolder = $('#imageHolder');
+                let img2 = $('<img src="https://m.media-amazon.com/images/I/814-cZVGojL._SX679_PIbundle-4,TopRight,0,0_AA679SH20_.jpg" alt="" style="width: 100px;">');
+                imageHolder.append(img2);
+             }
+             
+            
+            let lastDiv = $('#lastDiv')
+            container.append(lastDiv);
+
+
+           
+
+            
+
+        })  
+        function checkout(){
+                let selectTag =$('option:selected');
+                console.log(selectTag.val());
+                selectedTag.each((indx,ele)=>{
+                    let 
+                })
+                let printedVal = $(selectTag.val() );
+                container.before(printedVal);
+            }
+
+    </script>
+</head>
+<body>
+    <div id="container">
+
+        <!-- <div id="imageHolder">
+            <img src="https://m.media-amazon.com/images/I/814-cZVGojL._SX679_PIbundle-4,TopRight,0,0_AA679SH20_.jpg" alt="" style="width: 100px;"> 
+            
+            
+        </div>-->
+
+    <!-- <label for="">Pick flavour</label>
+    <div style="display: flex;">
+
+        <div style="border: 1px solid orange; border-radius: 10px;">
+            <input type="radio" value="" checked> Pike Place
+            <p>46.03</p>
+        </div>
+        <div style="border: 1px solid orange; border-radius: 10px;">
+            <input name="itemDisplay" type="radio" value="" > <label for="">Pike Place</label>
+            <p>53.08</p>
+        </div> -->
+
+    </div>
+
+    <div id="lastDiv">
+        <label for="">Quantity</label>
+        <select name="quantity1" id="quantity">
+            <option value="24 Count (pack of 4)">24 Count (pack of 4)</option>
+        </select>
+        <button onclick="checkout()">Checkout</button>
+    </div>
+</div>
+
+</body>
+</html>
